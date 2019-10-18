@@ -5,32 +5,60 @@ from time import sleep
 
 padWidth, padHeight = 480, 640
 
+class Player:
+    def __init__(self):
+        self.x, self.y = padWidth // 2, 20
+        self.frame = 0
+        self.image = load_image('animation01.png')
+    def update(self):
+        self.frame = (self.frame + 1) % 4
+        self.x += dir * 5
+        if dir < 0:
+            self.state = 0
+        elif dir > 0:
+            self.state = 1
+        elif dir == 0:
+            self.state = 2
+
+    def draw(self):
+        self.image.clip_draw(self.frame*42, 42 * self.state, 42, 42, self.x, self.y)
+
+class Enemy:
+    def __init__(self):
+        self.x, self.y = random.randint(40, 440), 639
+        self.image = load_image('rock02.png')
+        self.speed = random.randint(5,10)
+
+    def update(self):
+        self.y -= self.speed
+
+    def draw(self):
+        self.image.draw(self.x, self.y)
+
 
 def initGame():
-    global background, clock, character, running_game, x, y, state, dir
+    global background, clock, player, running_game, x, y, state, dir, enemys
     running_game = True
     open_canvas(padWidth, padWidth)
     #background = load_image('background001.png')
-    character = load_image('animation01.png')
+    player = Player()
+    enemys = [Enemy() for i in range(10)]
     bullet = load_image('bullet.png')
-    rock = load_image('rock02.png')
     x, y, state, dir = padWidth//2, 20, 2, 0
 
 def runGame():
-    global background, clock, character, x, y, running_game, state, dir
-    frame = 0
+    global background, clock, player, x, y, running_game, state, dir
     #background.draw(padWidth//2, padHeight //2)
-    character.clip_draw(frame * 42, 42 * state, 42, 42, x, y)
-    update_canvas()
-    frame = (frame + 1) % 4
-    x += dir * 5
-    if dir < 0:
-        state = 0
-    elif dir > 0:
-        state = 1
-    elif dir == 0:
-        state = 2
+    player.update()
+    for enemy in enemys:
+        enemy.update()
     clear_canvas()
+    player.draw()
+    for enemy in enemys:
+        enemy.draw()
+
+    update_canvas()
+
 
 def handle_events():
     global running_game, x, y, state, dir
@@ -51,6 +79,7 @@ def handle_events():
                 dir -= 1
             elif event.key == SDLK_LEFT:
                 dir += 1
+
 
 
 initGame()

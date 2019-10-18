@@ -9,15 +9,17 @@ class Player:
     def __init__(self):
         self.x, self.y = padWidth // 2, 20
         self.frame = 0
+        self.dir = 0
         self.image = load_image('animation01.png')
+
     def update(self):
         self.frame = (self.frame + 1) % 4
-        self.x += dir * 5
-        if dir < 0:
+        self.x += self.dir * 5
+        if self.dir < 0:
             self.state = 0
-        elif dir > 0:
+        elif self.dir > 0:
             self.state = 1
-        elif dir == 0:
+        elif self.dir == 0:
             self.state = 2
 
     def draw(self):
@@ -36,18 +38,18 @@ class Enemy:
         self.image.draw(self.x, self.y)
 
 
+
 def initGame():
-    global background, clock, player, running_game, x, y, state, dir, enemys
+    global running_game, background, clock, player, enemys
     running_game = True
     open_canvas(padWidth, padWidth)
     #background = load_image('background001.png')
     player = Player()
     enemys = [Enemy() for i in range(10)]
     bullet = load_image('bullet.png')
-    x, y, state, dir = padWidth//2, 20, 2, 0
 
 def runGame():
-    global background, clock, player, x, y, running_game, state, dir
+    global running_game, background, clock, player, enemys
     #background.draw(padWidth//2, padHeight //2)
     player.update()
     for enemy in enemys:
@@ -61,7 +63,7 @@ def runGame():
 
 
 def handle_events():
-    global running_game, x, y, state, dir
+    global running_game, player
 
     events = get_events()
     for event in events:
@@ -71,14 +73,14 @@ def handle_events():
             if event.key == SDLK_ESCAPE:
                 running_game = False
             elif event.key == SDLK_RIGHT:
-                dir += 1
+                player.dir += 1
             elif event.key == SDLK_LEFT:
-                dir -= 1
+                player.dir -= 1
         elif event.type == SDL_KEYUP:
             if event.key == SDLK_RIGHT:
-                dir -= 1
+                player.dir -= 1
             elif event.key == SDLK_LEFT:
-                dir += 1
+                player.dir += 1
 
 
 

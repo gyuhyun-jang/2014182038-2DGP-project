@@ -29,7 +29,7 @@ class Enemy:
     def __init__(self):
         self.x, self.y = random.randint(40, 440), 639
         self.image = load_image('rock02.png')
-        self.speed = random.randint(5,10)
+        self.speed = 2
 
     def update(self):
         self.y -= self.speed

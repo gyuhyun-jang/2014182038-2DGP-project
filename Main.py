@@ -60,7 +60,7 @@ def initGame():
     #background = load_image('background001.png')
     player = Player()
     enemys = [Enemy() for i in range(10)]
-    bullets = [Bullet() for i in range(100)]
+    bullets = [Bullet() for i in range(50)]
 
 def runGame():
     global running_game, background, clock, player, bullets, enemys

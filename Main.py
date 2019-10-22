@@ -48,6 +48,8 @@ class Bullet:
     def update(self):
         if self.x != 0:
             self.y += self.speed
+            if(self.y > 680):
+                del(self)
 
     def draw(self):
         self.image.draw(self.x, self.y)
@@ -94,9 +96,8 @@ def handle_events():
             elif event.key == SDLK_LEFT:
                 player.dir -= 1
             elif event.key == SDLK_SPACE:
-                bullets[count].x = player.x
-                bullets[count].y = player.y + 10
-                count += 1
+                bullets[count+1].x = player.x
+                bullets[count+1].y = player.y + 10
         elif event.type == SDL_KEYUP:
             if event.key == SDLK_RIGHT:
                 player.dir -= 1

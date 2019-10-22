@@ -96,8 +96,9 @@ def handle_events():
             elif event.key == SDLK_LEFT:
                 player.dir -= 1
             elif event.key == SDLK_SPACE:
-                bullets[count+1].x = player.x
-                bullets[count+1].y = player.y + 10
+                bullets[count].x = player.x
+                bullets[count].y = player.y + 10
+                count += 1
         elif event.type == SDL_KEYUP:
             if event.key == SDLK_RIGHT:
                 player.dir -= 1

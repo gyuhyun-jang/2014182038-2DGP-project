@@ -121,6 +121,7 @@ def update():
         enemy.update()
     for bullet in bullets:
         bullet.update()
+    delay(0.02)
     pass
 
 def draw():

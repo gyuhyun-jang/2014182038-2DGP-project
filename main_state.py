@@ -13,7 +13,7 @@ from player import Player
 from enemy import Enemy
 from bullet import Bullet
 
-padWidth, padHeight = 480, 640
+padWidth, padHeight = 510, 600
 name = "MainState"
 
 player = None
@@ -22,10 +22,10 @@ bullet = None
 
 
 def enter():
-    global running_game, player, enemys, bullets, count
+    global running_game, player, enemys, bullets, count, background
     running_game = True
     open_canvas(padWidth, padHeight)
-    background = load_image('background001.png')
+    background = load_image('background_01.png')
     player = Player()
     enemys = [Enemy() for i in range(20)]
     bullets = [Bullet() for i in range(20)]
@@ -94,3 +94,5 @@ def draw():
     for bullet in bullets:
         bullet.draw()
     update_canvas()
+    background.draw(padHeight // 2, padHeight // 2)
+

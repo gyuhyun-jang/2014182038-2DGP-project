@@ -11,6 +11,8 @@ class Enemy():
     def update(self):
         if self.y > 20:
             self.y -= self.speed
+        else:
+            self.y = 620
 
 
     def draw(self):

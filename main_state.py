@@ -52,7 +52,6 @@ def handle_events():
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             game_framework.quit()
-            #game_framework.change_state(title_state)
         elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_p):
             game_framework.push_state(pause_state)
         elif event.type == SDL_KEYDOWN:
@@ -75,13 +74,13 @@ def handle_events():
 
 
 def update():
-    # background.draw(padWidth//2, padHeight //2)
     player.update()
     for enemy in enemys:
         enemy.update()
     for bullet in bullets:
         bullet.update()
     delay(0.02)
+
     pass
 
 def draw():

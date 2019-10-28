@@ -1,4 +1,5 @@
 import game_framework
+import main_state
 import title_state
 from pico2d import *
 
@@ -10,6 +11,7 @@ logo_time = 0.0
 
 def enter():
     global image
+    open_canvas(480,600)
     image = load_image('kpu_credit.png')
 
 
@@ -32,7 +34,7 @@ def update():
 def draw():
     global image
     clear_canvas()
-    image.draw(400, 300)
+    image.draw(240, 300)
     update_canvas()
 
 

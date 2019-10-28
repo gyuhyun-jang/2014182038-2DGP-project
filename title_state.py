@@ -9,6 +9,7 @@ image = None
 
 def enter():
     global image
+    open_canvas(480,600)
     image = load_image('title.png')
 
 
@@ -31,7 +32,7 @@ def handle_events():
 
 def draw():
     clear_canvas()
-    image.draw(400, 300)
+    image.draw(200, 300)
     update_canvas()
 
 def update():

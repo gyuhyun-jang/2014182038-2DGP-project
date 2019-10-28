@@ -32,7 +32,7 @@ def handle_events():
 
 def draw():
     clear_canvas()
-    image.draw(200, 300)
+    image.draw(240, 300)
     update_canvas()
 
 def update():

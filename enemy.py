@@ -9,10 +9,11 @@ class Enemy:
 
     def update(self):
         self.y -= self.speed
+        if self.y <100:
+            del(self)
 
     def draw(self):
         self.image.draw(self.x, self.y)
 
     def exit(self):
-        if self.y == 100:
-            del(self)
+        pass

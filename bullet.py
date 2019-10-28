@@ -7,9 +7,8 @@ class Bullet:
         self.speed = 10
 
     def update(self):
-        if self.x != 0:
-            self.y += self.speed
-            #if self.y > 400:
+        pass
+
 
     def draw(self):
         self.image.draw(self.x, self.y)

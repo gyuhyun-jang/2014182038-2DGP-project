@@ -20,15 +20,13 @@ enemy = None
 bullet = None
 
 def enter():
-    global running_game, background, clock, player, enemys, bullets, count
+    global running_game, player, enemy, bullet
     running_game = True
-    count = 0
     open_canvas(padWidth, padHeight)
     background = load_image('background001.png')
     player = Player()
-    enemys = [Enemy() for i in range(20)]
-    bullets = [Bullet() for i in range(50)]
-
+    bullet = Bullet()
+    enemy = Enemy()
     pass
 
 def exit():
@@ -62,9 +60,9 @@ def handle_events():
             elif event.key == SDLK_LEFT:
                 player.dir -= 1
             elif event.key == SDLK_SPACE:
-                bullets[count].x = player.x
-                bullets[count].y = player.y + 10
-                count += 1
+                bullet[].x = player.x
+                bullet[].y = player.y + 10
+
         elif event.type == SDL_KEYUP:
             if event.key == SDLK_RIGHT:
                 player.dir -= 1
@@ -77,8 +75,7 @@ def update():
     player.update()
     for enemy in enemys:
         enemy.update()
-    for bullet in bullets:
-        bullet.update()
+    bullet.update()
     delay(0.02)
 
     pass
@@ -88,8 +85,7 @@ def draw():
     player.draw()
     for enemy in enemys:
         enemy.draw()
-    for bullet in bullets:
-        bullet.draw()
+    bullet.draw()
     update_canvas()
 
 

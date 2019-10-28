@@ -1,4 +1,5 @@
-from pico2d import*
+from pico2d import *
+
 
 class Bullet:
     def __init__(self):
@@ -7,8 +8,7 @@ class Bullet:
         self.speed = 10
 
     def update(self):
-        pass
-
+        self.y += self.speed
 
     def draw(self):
         self.image.draw(self.x, self.y)

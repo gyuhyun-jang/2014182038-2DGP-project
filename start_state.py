@@ -20,7 +20,7 @@ def exit():
 
 
 def update():
-    global logo_time
+    global logo_time, image
 
     if (logo_time > 1.0):
         logo_time = 0

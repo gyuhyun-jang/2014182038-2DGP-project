@@ -1,6 +1,7 @@
 import random
 import json
 import os
+from typing import List
 
 from pico2d import *
 
@@ -19,6 +20,7 @@ player = None
 enemy = None
 bullet = None
 
+
 def enter():
     global running_game, player, enemys, bullets, count
     running_game = True
@@ -30,10 +32,11 @@ def enter():
     count = 0
     pass
 
-def exit():
 
+def exit():
     close_canvas()
     pass
+
 
 def pause():
     pass
@@ -44,7 +47,7 @@ def resume():
 
 
 def handle_events():
-    global running_game, player, bullets, count
+    global running_game, player, bullets, count, enemys
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
@@ -72,16 +75,16 @@ def handle_events():
                 player.dir += 1
 
 
-
 def update():
     player.update()
     for enemy in enemys:
         enemy.update()
     for bullet in bullets:
         bullet.update()
-    delay(0.02)
 
+    delay(0.02)
     pass
+
 
 def draw():
     clear_canvas()
@@ -91,8 +94,3 @@ def draw():
     for bullet in bullets:
         bullet.draw()
     update_canvas()
-
-
-
-
-

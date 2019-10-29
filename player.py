@@ -2,19 +2,6 @@ from pico2d import*
 
 padWidth,padHeight = 400,600
 
-RIGHT_DOWN,LEFT_DOWN,RIGHT_UP,LEFT_UP,SPACE_DOWN,SPACE_UP = range(6)
-
-key_event_table = {
-    (SDL_KEYDOWN, SDLK_RIGHT): RIGHT_DOWN,
-    (SDL_KEYDOWN, SDLK_LEFT): LEFT_DOWN,
-    (SDL_KEYUP, SDLK_RIGHT): RIGHT_UP,
-    (SDL_KEYUP, SDLK_LEFT): LEFT_UP,
-    (SDL_KEYDOWN, SDLK_SPACE) : SPACE_DOWN,
-    (SDL_KEYUP, SDLK_SPACE) : SPACE_UP
-}
-
-
-
 class Player:
     def __init__(self):
         self.x, self.y = padWidth // 2, 20

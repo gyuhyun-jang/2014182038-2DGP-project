@@ -9,8 +9,7 @@ class Enemy():
         self.x, self.y = random.randint(40, 370), 640
         self.image = load_image(rockimage[random.randint(0,2)])
         self.speed = random.randint(1, 3)
-        self.hp = 2
-        self.bullet = Bullet()
+        self.hp = 10
 
     def update(self):
         if self.y > 20:

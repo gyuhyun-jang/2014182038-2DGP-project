@@ -75,8 +75,8 @@ def handle_events():
 
 
 def update():
-    global max_index, enemy_index
-
+    global hp
+    hp = 5
     player.update()
     for enemy in enemys:
         enemy.update()
@@ -84,11 +84,20 @@ def update():
         bullet.update()
     # 충돌체크
     for enemy in enemys:
+        if enemy.y < 30:
+            if hp == 0:
+                game_framework.change_state(title_state)
+            hp -= 1
         for bullet in bullets:
             if enemy.x + 15 >= bullet.x >= enemy.x - 15 and enemy.y + 10 >= bullet.y >= enemy.y - 10:
                 enemys.remove(enemy)
                 bullets.remove(bullet)
                 break
+    while len(enemys) < 20:
+        enemys.append(Enemy())
+    while len(bullets) < 20:
+        bullets.append(Bullet())
+
     delay(0.02)
     pass
 
@@ -102,4 +111,3 @@ def draw():
     for bullet in bullets:
         bullet.draw()
     update_canvas()
-

@@ -9,8 +9,8 @@ image = None
 
 def enter():
     global image
-    open_canvas(400,600)
-    image = load_image('kpu_credit.png')
+    open_canvas(800,600)
+    image = load_image('title.png')
 
 
 def exit():
@@ -32,7 +32,7 @@ def handle_events():
 
 def draw():
     clear_canvas()
-    image.draw(510 // 2, 600 // 2)
+    image.draw(800 // 2, 600 // 2)
     update_canvas()
 
 def update():

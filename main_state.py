@@ -1,7 +1,6 @@
 import random
 import json
 import os
-from typing import List
 
 from pico2d import *
 
@@ -13,7 +12,7 @@ from player import Player
 from enemy import Enemy
 from bullet import Bullet
 
-padWidth, padHeight = 510, 600
+padWidth, padHeight = 400, 600
 name = "MainState"
 
 player = None
@@ -76,23 +75,31 @@ def handle_events():
 
 
 def update():
+    global max_index, enemy_index
+
     player.update()
     for enemy in enemys:
         enemy.update()
     for bullet in bullets:
         bullet.update()
-
+    # 충돌체크
+    for enemy in enemys:
+        for bullet in bullets:
+            if enemy.x + 15 >= bullet.x >= enemy.x - 15 and enemy.y + 10 >= bullet.y >= enemy.y - 10:
+                enemys.remove(enemy)
+                bullets.remove(bullet)
+                break
     delay(0.02)
     pass
 
 
 def draw():
     clear_canvas()
+    background.draw(padWidth // 2, padHeight // 2)
     player.draw()
     for enemy in enemys:
         enemy.draw()
     for bullet in bullets:
         bullet.draw()
     update_canvas()
-    background.draw(padHeight // 2, padHeight // 2)
 

@@ -1,6 +1,6 @@
 from pico2d import*
 
-padWidth,padHeight = 480,640
+padWidth,padHeight = 400,600
 
 RIGHT_DOWN,LEFT_DOWN,RIGHT_UP,LEFT_UP,SPACE_DOWN,SPACE_UP = range(6)
 
@@ -25,7 +25,7 @@ class Player:
     def update(self):
         self.frame = (self.frame + 1) % 4
         self.x += self.dir * 5
-        self.x = clamp(0,self.x,480)
+        self.x = clamp(20,self.x,380)
         if self.dir < 0:
             self.state = 0
         elif self.dir > 0:

@@ -9,7 +9,7 @@ image = None
 
 def enter():
     global image
-    open_canvas(510,600)
+    open_canvas(400,600)
     image = load_image('kpu_credit.png')
 
 

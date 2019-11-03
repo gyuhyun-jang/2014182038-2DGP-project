@@ -14,9 +14,9 @@ class Enemy():
     def update(self):
         if self.y > 20:
             self.y -= self.speed
-        elif self.y < 40:
+        elif self.y < 30:
             self.x, self.y = random.randint(30, 370), 640
-            self.speed = random.randint(1, 3)
+            self.speed = random.randint(1, 2)
 
 
     def draw(self):

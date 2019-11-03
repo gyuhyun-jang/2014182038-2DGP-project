@@ -5,7 +5,7 @@ class Bullet:
     def __init__(self):
         self.x, self.y = 0, 0
         self.image = load_image('bullet.png')
-        self.speed = 10
+        self.speed = 12
 
     def update(self):
         if self.x != 0:

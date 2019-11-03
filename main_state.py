@@ -89,7 +89,7 @@ def update():
                 game_framework.change_state(title_state)
             hp -= 1
         for bullet in bullets:
-            if enemy.x + 15 >= bullet.x >= enemy.x - 15 and enemy.y + 10 >= bullet.y >= enemy.y - 10:
+            if enemy.x + 16 >= bullet.x >= enemy.x - 16 and enemy.y + 10 >= bullet.y >= enemy.y - 10:
                 enemys.remove(enemy)
                 bullets.remove(bullet)
                 break

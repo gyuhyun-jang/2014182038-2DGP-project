@@ -1,6 +1,6 @@
 from pico2d import *
 import random
-from bullet import Bullet
+
 
 rockimage = ['rock02.png','rock14.png','rock18.png']
 

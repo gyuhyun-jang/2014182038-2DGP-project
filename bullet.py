@@ -1,5 +1,6 @@
 from pico2d import *
-
+from resource import *
+import resource
 
 class Bullet:
     def __init__(self):

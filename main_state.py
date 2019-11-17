@@ -76,9 +76,9 @@ def handle_events():
 
 
 def update():
-    global hp, max_enemy, kill_score
+    global hp, max_enemy, kill_score, max_bullet_amount
     hp = 5
-    max_enemy = 20
+    max_enemy, max_bullet_amount = 20, 20
     kill_score = 0
     player.update()
     for enemy in enemys:
@@ -99,7 +99,7 @@ def update():
                 break
     while len(enemys) < max_enemy:
         enemys.append(Enemy())
-    while len(bullets) < 20:
+    while len(bullets) < max_bullet_amount:
         bullets.append(Bullet())
     if kill_score % 10 == 0:
         max_enemy += 1

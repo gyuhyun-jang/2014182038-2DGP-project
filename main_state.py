@@ -27,8 +27,8 @@ def enter():
     open_canvas(padWidth, padHeight)
     background = load_image('background_01.png')
     player = Player()
-    enemys = [Enemy() for i in range(20)]
-    bullets = [Bullet() for i in range(20)]
+    enemys = [Enemy()]
+    bullets = [Bullet()]
     count = 0
     pass
 
@@ -76,8 +76,9 @@ def handle_events():
 
 
 def update():
-    global hp
+    global hp, max_enemy
     hp = 5
+    max_enemy = 20
     player.update()
     for enemy in enemys:
         enemy.update()
@@ -94,7 +95,7 @@ def update():
                 enemys.remove(enemy)
                 bullets.remove(bullet)
                 break
-    while len(enemys) < 20:
+    while len(enemys) < max_enemy:
         enemys.append(Enemy())
     while len(bullets) < 20:
         bullets.append(Bullet())

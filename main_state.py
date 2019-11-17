@@ -1,6 +1,7 @@
 import random
 import json
 import os
+import time
 
 from pico2d import *
 

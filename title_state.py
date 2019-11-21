@@ -10,7 +10,7 @@ image = None
 def enter():
     global image
     open_canvas(800,600)
-    image = load_image('title.png')
+    image = load_image('./resource/title.png')
 
 
 def exit():

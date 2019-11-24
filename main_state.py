@@ -21,6 +21,7 @@ player = None
 enemy = None
 bullet = None
 enemys = []
+bullets = []
 kill_score = 0
 
 
@@ -52,6 +53,9 @@ def enter():
     player = Player()
     game_world.add_object(player, 1)
 
+    global bullets
+    bullets = [Bullet()]
+    game_world.add_objects(bullets, 1)
 
     global enemys, amount_of_enemys
     amount_of_enemys = 20
@@ -90,9 +94,14 @@ def update():
     for game_object in game_world.all_objects():
         game_object.update()
     for enemy in enemys:
-        if collide(bullet, enemy):
-            bullet.hit_enemy()
-            enemy.get_damaged(bullet.damage)
+        for bullet in bullets:
+            if collide(bullet, enemy):
+                bullet.hit_enemy()
+                enemy.get_damaged(bullet.damage)
+    while len(enemys) < 20:
+        enemys.append(Enemy())
+        game_world.add_objects(enemys, 1)
+
 
 
 

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b88a62c0-7f2b-483d-854d-60c6319b4ebe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_state.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +27,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../2DGP/Labs/Lecture14_Collision" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -47,7 +48,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.mygame">
-    <configuration name="enemy" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="bullet" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="2014182038-2DGP-project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -59,7 +60,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/enemy.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bullet.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -155,10 +156,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.mygame" />
+        <item itemvalue="Python.main_state" />
+        <item itemvalue="Python.bullet" />
         <item itemvalue="Python.player" />
         <item itemvalue="Python.title_state" />
-        <item itemvalue="Python.enemy" />
-        <item itemvalue="Python.main_state" />
       </list>
     </recent_temporary>
   </component>

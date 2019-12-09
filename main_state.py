@@ -24,7 +24,9 @@ max_amount_of_enemys = 0
 did_you_make_enemy = True
 enemy_life = 0
 boss_life = 0
-
+skill_time = 0
+skill_cooldown = 0
+cooldown_timer = False
 
 UI = None
 
@@ -52,7 +54,7 @@ def collide(a, b):
 
 def enter():
     global running_game, time, time_start_sign, player_life, bullet_damage, \
-        did_you_make_enemy, upgrade_cost, money
+        did_you_make_enemy, upgrade_cost, money, skill_time, skill_cooldown, cooldown_timer
     running_game = True
     time = 0
     time_start_sign = True
@@ -60,6 +62,9 @@ def enter():
     bullet_damage = 1
     did_you_make_enemy = True
     upgrade_cost = 20
+    skill_time = 2
+    skill_cooldown = 30
+    cooldown_timer = True
 
     global player
     player = Player()
@@ -107,7 +112,8 @@ def handle_events():
 
 
 def update():
-    global enemy,enemys, max_amount_of_enemys, kill_score, time, player_life, boss_life, did_you_make_enemy, enemy_life, money
+    global enemy,enemys, max_amount_of_enemys, kill_score, time, player_life,\
+        boss_life, did_you_make_enemy, enemy_life, money, skill_cooldown, cooldown_timer
     for game_object in game_world.all_objects():
         game_object.update()
     if time_start_sign:
@@ -125,6 +131,8 @@ def update():
     if player_life <= 0:
         game_world.clear()
         game_framework.change_state(dead_state)
+    if cooldown_timer is True:
+        skill_cooldown -= game_framework.frame_time
 
 
 

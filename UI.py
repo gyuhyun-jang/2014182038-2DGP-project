@@ -3,6 +3,7 @@ import game_world
 import game_framework
 import main_state
 
+font = None
 
 class UI_Manager:
     def __init__(self):

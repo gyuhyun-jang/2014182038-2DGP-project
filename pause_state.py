@@ -19,8 +19,7 @@ def handle_events():
             game_framework.pop_state()
 
 def draw():
-    clear_canvas()
-    image.draw(240,300)
+    image.draw(200, 300)
     update_canvas()
 
 def update():

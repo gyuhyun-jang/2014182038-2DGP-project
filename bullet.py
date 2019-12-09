@@ -1,8 +1,5 @@
 from pico2d import *
 import game_world
-import game_framework
-import enemy
-import player
 import main_state
 
 
@@ -16,17 +13,12 @@ RUN_SPEED_PPS = (RUN_SPEED_MPS * PIXEL_PER_METER)
 class Bullet:
     image = None
 
-    def __init__(self):
+    def __init__(self, x=200, y=30):
         if Bullet.image is None:
             Bullet.image = load_image('./resource/bullet.png')
-        self.x, self.y, self.speed = main_state.player.x, main_state.player.y, RUN_SPEED_PPS
-        self.damage = 1
-
-    def get_bb(self):
-        return self.x - 4, self.y - 9, self.x + 4, self.y + 9
-
-    def draw(self):
-        self.image.draw(self.x, self.y)
+        self.x, self.y = x, y
+        self.speed = RUN_SPEED_PPS
+        self.damage = main_state.bullet_damage
 
     def update(self):
         self.y += self.speed
@@ -34,8 +26,16 @@ class Bullet:
         if self.y > 600:
             game_world.remove_object(self)
 
-    def hit_enemy(self):
-        game_world.remove_object(self)
+        for main_state.enemy in main_state.enemys:
+            if main_state.collide(self, main_state.enemy):
+                main_state.enemy.hp -= self.damage
+                game_world.remove_object(self)
+
+    def draw(self):
+        self.image.draw(self.x, self.y)
+
+    def get_bb(self):
+        return self.x - 4, self.y - 9, self.x + 4, self.y + 9
 
 
 
